@@ -1,7 +1,37 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.delete_all
+Category.delete_all
+Shoe.delete_all
+
+
+categories = [
+"Booties",
+"Boots",
+"Pumps",
+"Sandals",
+"Flats",
+"Sneakers",
+"Comforts",
+"Slippers",
+"Rain&Cold Weather"
+]
+categories.each do |category_name|
+   category = Category.create( name: category_name )
+end
+
+
+shoes = [
+["jessica simpson", 120, 5, "Almond toe, stacked heel, side zip closure Interior lining, cushioned insole.", "img", "black", "woman", "aldo", 38, "Boots" ],
+["carla", 90, 5, "Almond toe, stacked heel, side zip closure Interior lining, cushioned insole.", "img", "black", "woman", "aldo", 38, "Sandals" ],
+["carla", 90, 5, "Almond toe, stacked heel, side zip closure Interior lining, cushioned insole.", "img", "black", "woman", "aldo", 38, "Sandals" ],
+["carla", 90, 5, "Almond toe, stacked heel, side zip closure Interior lining, cushioned insole.", "img", "black", "woman", "aldo", 38, "Sandals" ]
+]
+
+shoes.each do | name, price, stock, description, image, color, gender, brand, size |
+      shoe = Shoe.create( name: name, price: price, stock: stock, description: description, image: image, color: color, gender: gender, brand: brand, size: size )
+end
+
+      carla = User.create( name:"carla", email: 'frank@ex.com', password: 'abcd1234' )
+      glory = User.create( name:"glory", email: 'glory@ex.com', password: 'abcd1234' )
+      jessica = User.create( name:"jessica", email: 'jessica@ex.com', password: 'abcd1234' )
+      michel = User.create( name:"michel", email: 'michel@ex.com', password: 'abcd1234' )
