@@ -1,2 +1,13 @@
-<h1>Shoes#show</h1>
-<p>Find me in app/views/shoes/show.html.erb</p>
+<h1>
+   <%= @shoe.name %>
+</h1>
+
+<img src="<%= @shoe.image %>"/>
+<h3><%= @shoe.price %></h3>
+<h3><%= @shoe.stock %></h3>
+<h3><%= @shoe.color %></h3>
+<h3><%= @shoe.gender %></h3>
+<h3><%= @shoe.brand %></h3>
+<h3><%= @shoe.size %></h3>
+
+<p><%= simple_format @author.bio %></p>
