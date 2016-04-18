@@ -1,0 +1,4 @@
+<h1>Welcome to our Shoe Store!</h1>
+<% @shoes.each do |shoe| %>
+    <p><%= link_to shoe.name, shoe %></p>
+<% end %>
