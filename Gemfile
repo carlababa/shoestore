@@ -48,3 +48,5 @@ end
 gem 'devise', '~> 3.5'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'friendly_id', '~> 5.1.0'
