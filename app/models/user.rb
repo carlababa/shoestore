@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  include FriendlyId
+  # include FriendlyId
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
