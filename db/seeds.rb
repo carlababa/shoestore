@@ -31,7 +31,7 @@ shoes.each do | name, price, stock, description, image, color, gender, brand, si
       shoe = Shoe.create( name: name, price: price, stock: stock, description: description, image: image, color: color, gender: gender, brand: brand, size: size )
 end
 
-      carla = User.create( name:"carla", email: 'frank@ex.com', password: 'abcd1234' )
-      glory = User.create( name:"glory", email: 'glory@ex.com', password: 'abcd1234' )
-      jessica = User.create( name:"jessica", email: 'jessica@ex.com', password: 'abcd1234' )
-      michel = User.create( name:"michel", email: 'michel@ex.com', password: 'abcd1234' )
+User.create( name: "carla", email: "frank@ex.com", password: "abcd1234" )
+User.create( name: "glory", email: "glory@ex.com", password: "abcd1234" )
+User.create( name: "jessica", email: "jessica@ex.com", password: "abcd1234" )
+User.create( name: "michel", email: "michel@ex.com", password: "abcd1234" )
