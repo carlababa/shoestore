@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160418151023) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 20160418151023) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "categories_shoes", ["category_id"], name: "index_categories_shoes_on_category_id"
-  add_index "categories_shoes", ["shoe_id"], name: "index_categories_shoes_on_shoe_id"
+  add_index "categories_shoes", ["category_id"], name: "index_categories_shoes_on_category_id", using: :btree
+  add_index "categories_shoes", ["shoe_id"], name: "index_categories_shoes_on_shoe_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -37,10 +40,10 @@ ActiveRecord::Schema.define(version: 20160418151023) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "shoes", force: :cascade do |t|
     t.string   "name"
@@ -73,7 +76,9 @@ ActiveRecord::Schema.define(version: 20160418151023) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "categories_shoes", "categories"
+  add_foreign_key "categories_shoes", "shoes"
 end
