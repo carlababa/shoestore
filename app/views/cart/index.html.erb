@@ -1,2 +1,24 @@
-<h1>Cart#index</h1>
-<p>Find me in app/views/cart/index.html.erb</p>
+<h1>Contents cart </h1>
+
+
+
+
+<%@total_price=0%>
+<%=link_to "empty your cart", cart_clear_path%>
+<br>
+
+<%@cart.keys.each do |id|%>
+<%product=Shoe.find_by_id(id)%>
+
+<p>you have <%=product.name%> in your cart</p>
+<p> This product costs <%=product.price%> a piece</p>
+<%@total_price=@total_price+product.price%>
+<br>
+<br>
+
+<%end%>
+
+<% if @total_price>0%>
+<p>The total amount is <%=@total_price%></p>
+<% else%>
+<%end%>
