@@ -1,17 +1,11 @@
 class ShoesController < ApplicationController
-  def index
-    @shoes = Shoe.all
-    # @shoes = Shoe.search(params[:search])
-  end
-
   def show
     @shoe = Shoe.find(params[:id])
   end
 
   def index
-
     if params[:search]
-      shoes = Shoe.where("name LIKE ?", "%#{params[:search]}%")
+      shoes = Shoe.where("shoes.name LIKE ?", "%#{params[:search]}%")
       if shoes.present?
         @shoes = shoes
       else
@@ -20,6 +14,6 @@ class ShoesController < ApplicationController
     else
       @shoes = Shoe.all
     end
-
+    @shoes = @shoes.joins(:categories).where(categories:{id: params[:category_id]}) if params[:category_id].present?
   end
 end
