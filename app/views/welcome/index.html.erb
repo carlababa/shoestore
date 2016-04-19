@@ -6,8 +6,8 @@
       <% @categories.each do |category| %>
          <div class="col-xs-4 letmargin">
             <div class="hovereffect">
-              <%= category.price %>
-              <%= image_tag(category.image, class: "indeximg") %>
+              <%= category.name %>
+              <%= image_tag(category.image, class: "indeximg shoe-image") %>
             </div>
          </div>
      <% end %>
