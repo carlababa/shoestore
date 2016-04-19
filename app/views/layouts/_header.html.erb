@@ -1,14 +1,18 @@
 
 <nav class="navbar navbar-inverse">
   <ul class="nav navbar-nav">
-    <li><%= link_to "Shoes", shoes_path %></li>
+    <li><%= link_to "Home", root_path, class: "btn btn-home" %></li>
+    <li><%= link_to "Men", root_path, class: "btn" %> </li>
+
+    <li><%= link_to "Women", root_path, class: "btn" %></li>
+    <li><%= link_to "Kids", root_path, class: "btn" %></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
     <% if !user_signed_in? %>
-        <li><%= link_to "Log In", new_user_session_path %></li>
+        <li><%= link_to "Log In", new_user_session_path, class: "btn" %></li>
     <% else %>
         <li><span class="navbar-text"><%= current_user.email %></span></li>
-        <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+        <li><%= link_to "Log Out", destroy_user_session_path, class: "btn", :method => :delete %></li>
   <% end %>
   </ul>
 </nav>

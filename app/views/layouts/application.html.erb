@@ -8,11 +8,17 @@
 
 </head>
 <body>
-
   <%= render "layouts/header" %><br/>
-  <%= yield %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
+  <div id="main" class="container-fluid">
+
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+  </div>
+
+  <%= render "layouts/footer" %>
 
 </body>
 </html>
