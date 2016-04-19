@@ -1,7 +1,11 @@
 
 <nav class="navbar navbar-inverse">
   <ul class="nav navbar-nav">
-    <li><%= link_to "Home", root_path, class: "btn" %></li>
+    <li><%= link_to "Home", root_path, class: "btn btn-home" %></li>
+    <li><%= link_to "Men", root_path, class: "btn" %> </li>
+
+    <li><%= link_to "Women", root_path, class: "btn" %></li>
+    <li><%= link_to "Kids", root_path, class: "btn" %></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
     <% if !user_signed_in? %>

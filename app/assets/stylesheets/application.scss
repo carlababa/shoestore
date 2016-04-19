@@ -3,7 +3,18 @@
 
 @import "shoes.scss";
 @import "header.scss";
+@import "footer.scss";
+
+* {
+box-sizing: border-box;
+}
 
 div#main {
   margin: 50px;
+}
+
+.flex {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
 }
