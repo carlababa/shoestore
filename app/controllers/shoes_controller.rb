@@ -4,6 +4,6 @@ class ShoesController < ApplicationController
   end
 
   def show
-    @shoe = Shoe.find( params[:id] )
+    @shoe = Shoe.find(params[:id])
   end
 end
