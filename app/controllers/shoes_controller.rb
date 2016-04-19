@@ -2,6 +2,7 @@ class ShoesController < ApplicationController
   def index
     @shoes = Shoe.all
     # @shoes = Shoe.search(params[:search])
+    @shoes = @shoes.joins(:categories).where(categories:{id: params[:category_id]}) if params[:category_id].present?
   end
 
   def show
