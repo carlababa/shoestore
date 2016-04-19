@@ -1,4 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import "shoes.scss"
+@import "shoes.scss";
+@import "header.scss";
+
+div#main {
+  margin: 50px;
+}
