@@ -4,6 +4,14 @@
   letter-spacing: 3px;
 }
 
+.navbar {
+  border-radius: 0px;
+}
+
+.navbar-right {
+  margin-right: 0;
+}
+
 .btn-home {
   font-size: 20px;
 }
@@ -12,6 +20,12 @@
   border-radius: 0px;
   background-image: none !important;
   background-color: #666 !important;
+}
+
+.search-btn {
+  float: right;
+  margin-top: -20px;
+  margin-right: 15px;
 }
 
 .dropdown-toggle:hover {
