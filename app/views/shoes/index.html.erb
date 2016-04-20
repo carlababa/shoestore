@@ -3,23 +3,22 @@
     <div class="sale-txt">50% SALE</div>
     <div class="sub-sale-txt">on woman shoes</div>
   </div>
+
 <h1>Welcome to our Shoe Store!</h1>
 <br/>
 
-<div class="row">
-  <% @shoes.each do |shoe| %>
-
-      <div class="col-sm-12 col-md-4">
-        <div class="thumbnail">
-          <div class="img-index"><%= link_to image_tag(shoe.image), shoe %></div>
-          <div class="caption">
-            <h3><%= link_to shoe.name, shoe %></h3>
-            <p>Price:<%= shoe.price %> euros</p>
-            <p><%= shoe.description %></p>
+  <div class="row">
+    <% @shoes.each do |shoe| %>
+        <div class="col-sm-12 col-md-4">
+          <div class="thumbnail">
+            <div class="img-index"><%= link_to image_tag(shoe.image), shoe %></div>
+            <div class="caption">
+              <h3><%= link_to shoe.name, shoe %></h3>
+              <p>Price:<%= shoe.price %> euros</p>
+              <p><%= shoe.description %></p>
+            </div>
           </div>
         </div>
-      </div>
-
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>
