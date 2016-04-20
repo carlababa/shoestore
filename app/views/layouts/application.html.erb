@@ -8,9 +8,10 @@
 
 </head>
 <body>
+
   <%= render "layouts/header" %><br/>
 
-  <div id="main" class="container-fluid">
+  <div class="main">
 
     <%= yield %>
     <p class="notice"><%= notice %></p>
@@ -19,6 +20,5 @@
   </div>
 
   <%= render "layouts/footer" %>
-
 </body>
 </html>
