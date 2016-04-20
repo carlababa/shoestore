@@ -19,8 +19,11 @@ h5 {
   vertical-align: middle;
   text-align: center;
 }
+.row span {
+  color: #B23835;
+}
 
-.container,
+#footer.container,
 .row {
   display: flex;
   justify-content: center;
