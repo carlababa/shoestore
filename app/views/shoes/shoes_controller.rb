@@ -17,22 +17,24 @@ class ShoesController < ApplicationController
     @shoes = @shoes.joins(:categories).where(categories:{id: params[:category_id]}) if params[:category_id].present?
   end
 
-  def menShoes
-    @menShoes=Shoe.where({gender:["men","unisex"]})
+
+def menShoes
+  @menShoes=Shoe.where({gender:["men","unisex"]})
 
 
 
-  end
+end
 
 
-  def womenShoes
-  @womanShoes=Shoe.where({gender:["woman", "unisex"]})
+def womenShoes
+@womanShoes=Shoe.where({gender:["woman", "unisex"]})
 
-  end
+end
 
-  def kidShoes
-    @kidShoes=  @menShoes=Shoe.where({gender:["kids","unisex"]})
+def kidShoes
+  @kidShoes=  @menShoes=Shoe.where({gender:["kids","unisex"]})
 
-  end
+end
+
 
 end
