@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'user/show'
 
+  get '/shoes/men' => 'shoes#menShoes'
+get '/shoes/women' => 'shoes#womenShoes'
+ get '/shoes/kids' => 'shoes#kidShoes'
+
 
 
   get 'welcome/index'
