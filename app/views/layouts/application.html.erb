@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shoestore</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
-  <%= render "layouts/header" %><br/>
 
-  <div id="main" class="container-fluid">
+  <%= render "layouts/header" %><br/>
+  <img src="http://media.fotki.com/1_p,rsbfgwgdddwwqdtxwssdkwkbdbds,vi/tqffqbstkxttbgfkkkwxbsdqbskwr/5/215855/12951261/34438811894072-vi.jpg" id="bg" alt="">
+  <div class="main">
 
     <%= yield %>
     <p class="notice"><%= notice %></p>
@@ -19,6 +24,5 @@
   </div>
 
   <%= render "layouts/footer" %>
-
 </body>
 </html>

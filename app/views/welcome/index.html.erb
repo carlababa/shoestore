@@ -1,17 +1,15 @@
-<h1>Welcome#index</h1>
-
 
 <section class="container">
     <div class="row">
-      <% @categories.each do |category| %>
-         <div class="col-xs-4 letmargin">
-            <div class="hovereffect">
-              <%= category.price %>
-              <%= image_tag(category.image, class: "indeximg") %>
+    <% @categories.each do |category| %>
+       <div class="col-xs-12 col-md-3">
+          <div class="thumbnail">
+            <%= link_to image_tag(category.image), category_shoes_path(category)  %>
+            <div class="background-caption">
+              <p><%= category.name %></p>
             </div>
-         </div>
-     <% end %>
+          </div>
+       </div>
+    <% end %>
    </div>
 </section>
-
-<p><%= link_to "See our Complete Collection", shoes_path %></p>

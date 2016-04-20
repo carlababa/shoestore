@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @categories = Shoe.where("price > ?", 100)
+    @categories = Category.joins(:shoes).all.uniq
   end
 end

@@ -8,9 +8,12 @@ Rails.application.routes.draw do
 
   get 'user/show'
 
-  get 'categories/index'
+
 
   get 'welcome/index'
+  resources :categories do
+    resources :shoes
+  end
 
 
   resources :shoes

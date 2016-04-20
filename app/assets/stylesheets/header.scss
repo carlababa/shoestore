@@ -4,8 +4,30 @@
   letter-spacing: 3px;
 }
 
-.btn-home {
+.navbar {
+  border-radius: 0px;
+}
+
+.navbar-right {
+  margin-right: -20px;
+}
+
+.navbar-brand {
   font-size: 20px;
+  letter-spacing: 3px;
+  padding-left: 50px;
+  margin-right: 50px;
+}
+
+.dropdown {
+  width: 160px;
+  border-right: 2px solid #666;
+  margin-right: 20px;
+}
+
+.caret {
+  float: right;
+  margin-top: 7.5px;
 }
 
 .btn:hover {
@@ -13,6 +35,17 @@
   background-image: none !important;
   background-color: #666 !important;
 }
+
+.search-btn {
+  float: right;
+  margin-top: -20px;
+  margin-right: 25px;
+}
+
+.btn {
+  letter-spacing: 2px;
+}
+
 
 .dropdown-toggle:hover {
   border-radius: 0px;

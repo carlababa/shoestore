@@ -1,18 +1,63 @@
 
 <nav class="navbar navbar-inverse">
-  <ul class="nav navbar-nav">
-    <li><%= link_to "Home", root_path, class: "btn btn-home" %></li>
-    <li><%= link_to "Men", root_path, class: "btn" %> </li>
-
-    <li><%= link_to "Women", root_path, class: "btn" %></li>
-    <li><%= link_to "Kids", root_path, class: "btn" %></li>
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-    <% if !user_signed_in? %>
-        <li><%= link_to "Log In", new_user_session_path, class: "btn" %></li>
-    <% else %>
-        <li><span class="navbar-text"><%= current_user.email %></span></li>
-        <li><%= link_to "Log Out", destroy_user_session_path, class: "btn", :method => :delete %></li>
-  <% end %>
-  </ul>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-togle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">Home</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="<%= root_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Category 1", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 2", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 3", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 4", root_path, class: "btn" %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="<%= root_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Women <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Category 1", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 2", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 3", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 4", root_path, class: "btn" %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="<%= root_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kids <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Category 1", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 2", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 3", root_path, class: "btn" %></li>
+            <li><%= link_to "Category 4", root_path, class: "btn" %></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <% if !user_signed_in? %>
+            <li><%= link_to "Log In", new_user_session_path, class: "btn" %></li>
+          <% else %>
+            <li><span class="navbar-text"><%= current_user.email %></span></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, class: "btn", :method => :delete %></li>
+          <% end %><br>
+      </ul>
+    </div>
+  </div>
 </nav>
+<div class="search-btn">
+  <%= form_tag '/shoes', :method => 'get', id: "search-form", class: "navbar-form", role:"search" do %>
+  <div class="form-group">
+    <p>
+      <%= text_field_tag :search, params[:search], placeholder: "Search name", class: "form-control" %>
+      <%= submit_tag "Search", :name => nil, class: "btn" %>
+    </p>
+    <% end %>
+  </div>
+</div>
