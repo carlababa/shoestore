@@ -33,7 +33,8 @@ shoes = [
 ["Carla", 90, 5, "Almond toe, stacked heel, side zip closure Interior lining, cushioned insole.", "pumps.jpg", "black", "woman", "aldo", 38, "Pumps" ],
 ["Carla", 90, 5, "Almond toe, stacked heel, side zip closure Interior lining, cushioned insole.", "sandals.jpg", "black", "woman", "aldo", 38, "Sandals" ],
 ["Panda Peddlers", 20, 10, "Ever want to walk on a panda?", "pandaslippers.jpg", "black","unisex", "Plushmasters", 40, "Slippers"],
-["Turd", 20, 5, "Like stepping in poo!", "slippers.png", "brown","unisex", "Plushmasters", 42, "Slippers"]
+["Turd", 20, 5, "Like stepping in poo!", "slippers.png", "brown","unisex", "Plushmasters", 42, "Slippers"],
+["Kitty Kickers", 20, 5, "Soft as a cat!", "kittyslippers.png", "grey","unisex", "Plushmasters", 42, "Slippers"]
 ]
 
 
@@ -148,7 +149,7 @@ Man made materials.
 
 Approximate heel height 5 inches",
     stock: 10,
-    image: "Rand23_Camel_Leopard01.jpg.jpg",
+    image: "Rand23_Camel_Leopard01.jpg",
     color: "leopard",
     gender: "woman",
     category: "Pumps"
@@ -164,13 +165,21 @@ Man made materials.
 
 Approximate heel height 5 inches",
     stock: 10,
-    image: "Vocita_Brown_Beige_pink_0.jpg",
+    image: "Vocita_Brown_Beige_Pink_01.jpg",
     color: "beige",
     gender: "woman",
-    category: "Pumps"
+    category: "Pumps, fun"
+  },
+  {
+  name: "Red Lightning",
+  price: 10,
+  image: "adidasredflipflop.jpg",
+  gender: "man",
+  stock: 20,
+  category: "Sandals, Flip-Flops",
+  color: "red"
   }
 ]
-
 
 shoes.each do | shoe |
   newshoe = Shoe.create( name: shoe[:name], price: shoe[:price], stock: shoe[:stock], description: shoe[:description], image: shoe[:image], color: shoe[:color], gender: shoe[:gender], brand: shoe[:brand], size: shoe[:size] )
