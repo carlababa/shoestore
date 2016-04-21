@@ -10,6 +10,10 @@ User.create( name: "glory", email: "glory@ex.com", password: "abcd1234" )
 User.create( name: "jessica", email: "jessica@ex.com", password: "abcd1234" )
 User.create( name: "michel", email: "michel@ex.com", password: "abcd1234" )
 
+25.times do |x|
+  User.create( name:Faker::Name.name, email:Faker::Internet.email, password:Faker::Internet.password)
+end
+
 
 categories = [
 "Booties",
@@ -39,6 +43,20 @@ shoes = [
 
 shoes.each do | name, price, stock, description, image, color, gender, brand, size, categories|
   shoe = Shoe.create( name: name, price: price, stock: stock, description: description, image: image, color: color, gender: gender, brand: brand, size: size )
+  x = Random.rand(1...3)
+  x.times do |i|
+    review = Faker::Hacker.say_something_smart
+    userid = Random.rand(User.first.id...User.last.id - 1)
+    Review.create(message:review, user_id:userid, shoe:shoe)
+  end
+  x = Random.rand(1...3)
+  x.times do |i|
+    review = Faker::Hipster.sentence
+    userid = Random.rand(User.first.id...User.last.id - 1)
+    Review.create(message:review, user_id:userid, shoe:shoe)
+  end
+
+
   categories.split(", ").each do |category_name|
     if category = Category.find_by( name: category_name)
     else
@@ -174,9 +192,20 @@ Approximate heel height 5 inches",
 
 shoes.each do | shoe |
   newshoe = Shoe.create( name: shoe[:name], price: shoe[:price], stock: shoe[:stock], description: shoe[:description], image: shoe[:image], color: shoe[:color], gender: shoe[:gender], brand: shoe[:brand], size: shoe[:size] )
-  review = Faker::Hacker.say_something_smart
-  userid = Random.rand(User.first.id...User.last.id - 1)
-  Review.create(message:review, user_id:userid, shoe:newshoe)
+
+  x = Random.rand(1...3)
+  x.times do |i|
+    review = Faker::Hacker.say_something_smart
+    userid = Random.rand(User.first.id...User.last.id - 1)
+    Review.create(message:review, user_id:userid, shoe:newshoe)
+  end
+  x = Random.rand(1...3)
+  x.times do |i|
+    review = Faker::Hipster.sentence
+    userid = Random.rand(User.first.id...User.last.id - 1)
+    Review.create(message:review, user_id:userid, shoe:newshoe)
+  end
+
   shoe[:category].split(", ").each do |category_name|
     if category = Category.find_by( name: category_name)
     else

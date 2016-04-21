@@ -12,12 +12,13 @@ class ReviewsController < ApplicationController
  end
 
   def index
-    @reviews = Review.all
+    @shoe = Shoe.find(params[:shoe_id])
+    @reviews = @shoe.try!(:reviews)
   end
+
   def user
       @user = User.find( params[:user_id] )
-
       @reviews = Review.where( user: @user ).order( created_at: :desc )
    end
-  
+
 end
