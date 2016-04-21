@@ -35,4 +35,11 @@ class CartController < ApplicationController
   end
 end
 
+  # def destroy
+  #   @cart = session[:cart].find(params[:id])
+  #   @cart.destroy
+  #
+  #   redirect_to cart_path
+  # end
+
 end
