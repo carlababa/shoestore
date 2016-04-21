@@ -46,6 +46,16 @@
   margin-right: 20px;
 }
 
+.dropdown-toggle:hover {
+  border-radius: 0px;
+  background-image: none !important;
+  background-color: #666 !important;
+}
+
+.dropdown-menu a:hover {
+  background-color: #555 !important;
+}
+
 .caret {
   float: right;
   margin-top: 7.5px;
@@ -66,10 +76,4 @@
 .btn {
   letter-spacing: 2px;
   border-radius: 0;
-}
-
-.dropdown-toggle:hover {
-  border-radius: 0px;
-  background-image: none !important;
-  background-color: #666 !important;
 }
