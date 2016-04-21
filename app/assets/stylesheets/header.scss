@@ -1,3 +1,24 @@
+.cart-trolley {
+  font-size: 24px;
+  float: left;
+  padding-right: 25px;
+  padding-top: 4px;
+  color: #444;
+}
+
+.cart-trolley a {
+  color: #444;
+}
+
+.cart-trolley a:hover {
+  color: #666;
+}
+
+.form-control {
+  border-radius: 0;
+  letter-spacing: 2px;
+}
+
 .nav {
   padding-left: 25px;
   padding-right: 25px;
@@ -44,8 +65,8 @@
 
 .btn {
   letter-spacing: 2px;
+  border-radius: 0;
 }
-
 
 .dropdown-toggle:hover {
   border-radius: 0px;
