@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :reviews
+  get 'reviews/index'
+  get 'user_reviews/:user_id' => 'reviews#user', as: :user_reviews
 
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
@@ -7,6 +10,7 @@ Rails.application.routes.draw do
   get 'user/index'
 
   get 'user/show'
+
 
 
  get 'gender/:gender/shoes' => 'shoes#index'
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
 
 
   resources :shoes
+    resources :reviews
   # resources :users
   root "welcome#index"
   devise_for :users

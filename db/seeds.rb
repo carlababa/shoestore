@@ -1,4 +1,4 @@
-
+Review.delete_all
 User.delete_all
 CategoriesShoes.delete_all
 Category.delete_all
@@ -148,7 +148,7 @@ Man made materials.
 
 Approximate heel height 5 inches",
     stock: 10,
-    image: "Rand23_Camel_Leopard01.jpg.jpg",
+    image: "Rand23_Camel_Leopard01.jpg",
     color: "leopard",
     gender: "woman",
     category: "Pumps"
@@ -164,7 +164,7 @@ Man made materials.
 
 Approximate heel height 5 inches",
     stock: 10,
-    image: "Vocita_Brown_Beige_pink_0.jpg",
+    image: "Vocita_Brown_Beige_Pink_01.jpg",
     color: "beige",
     gender: "woman",
     category: "Pumps"
@@ -174,6 +174,9 @@ Approximate heel height 5 inches",
 
 shoes.each do | shoe |
   newshoe = Shoe.create( name: shoe[:name], price: shoe[:price], stock: shoe[:stock], description: shoe[:description], image: shoe[:image], color: shoe[:color], gender: shoe[:gender], brand: shoe[:brand], size: shoe[:size] )
+  review = Faker::Hacker.say_something_smart
+  userid = Random.rand(User.first.id...User.last.id - 1)
+  Review.create(message:review, user_id:userid, shoe:newshoe)
   shoe[:category].split(", ").each do |category_name|
     if category = Category.find_by( name: category_name)
     else
