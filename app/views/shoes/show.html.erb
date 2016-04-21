@@ -24,7 +24,6 @@
    </div>
   </div>
 
-<% if @shoe.reviews.count > 1 %>
-  <h3>What our Customers say about <%=@shoe.name%></h3>
-  <%= render @shoe.reviews %>
-<%end%>  
+<% if @shoe.reviews.count > 0 %>
+  <p><%= link_to "Read all " + @shoe.reviews.count.to_s + " reviews", shoe_reviews_path(@shoe.id) %></p>
+<%end%>

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
  get 'gender/:gender/shoes' => 'shoes#index'
 
-
+ resources :shoes do
+     resources :reviews
+ end
 
   get 'welcome/index'
   resources :categories do

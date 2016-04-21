@@ -3,9 +3,9 @@
 <br>
 
 <% @reviews.each do |review| %>
-    <div class="col-sm-12 col-md-4">
+    <div>
       <h2><%= review.shoe.name%></h2>
-      <div class="thumbnail"><%= image_tag(review.shoe.image) %></div>
+      <div><%= image_tag(review.shoe.image, class:"img-responsive") %></div>
        <h4><%= review.message %></h4>
     </div>
 <% end %>

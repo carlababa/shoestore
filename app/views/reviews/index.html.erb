@@ -1,3 +1,15 @@
+
+
+<div class="text-center"><h3>Here is what our Customers say about <strong><%= @shoe.name %></strong> </h3>
+<%= image_tag( @shoe.image, width:"100", height:"auto" ) %></div>
+
+
+<br>
+
+<%= render @reviews %>
+
+<br>
+<em>Tried this Product? Tell us about it!</em>
 <%= render "form" %>
 <br>
-<%= render @reviews %>
+<p><%= link_to "Back to Show Page", @shoe %></p>
