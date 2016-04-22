@@ -37,7 +37,7 @@ shoes = [
 ["Carla", 90, 5, "Almond toe, stacked heel, side zip closure Interior lining, cushioned insole.", "pumps.jpg", "black", "woman", "aldo", 38, "Pumps" ],
 ["Carla", 90, 5, "Almond toe, stacked heel, side zip closure Interior lining, cushioned insole.", "sandals.jpg", "black", "woman", "aldo", 38, "Sandals" ],
 ["Panda Peddlers", 20, 10, "Ever want to walk on a panda?", "pandaslippers.jpg", "black","unisex", "Plushmasters", 40, "Slippers"],
-["Turd", 20, 5, "Like stepping in poo!", "slippers.png", "brown","unisex", "Plushmasters", 42, "Slippers"]
+["Turd", 20, 5, "Like stepping in poo!", "slippers.png", "brown","unisex", "Plushmasters", 42, "Slippers, Comfy"]
 ]
 
 
@@ -75,7 +75,7 @@ shoes = [
     image: "jardinheelwhite.jpg",
     color: "white",
     gender: "woman",
-    category: "Sandals"
+    category: "Sandals, Sale"
   },
   {
     name: "Jardin Heel",
@@ -85,7 +85,7 @@ shoes = [
     image: "jardinheelred.jpg",
     color: "red",
     gender: "woman",
-    category: "Sandals"
+    category: "Sandals, Sale"
   },
   {
     name: "Jardin Heel",
@@ -95,7 +95,7 @@ shoes = [
     image: "jardinheelblue.jpg",
     color: "blue",
     gender: "woman",
-    category: "Sandals"
+    category: "Sandals, Sale"
   },
   {
     name: "Jardin Heel",
@@ -105,7 +105,7 @@ shoes = [
     image: "jardinheelblack.jpg",
     color: "white",
     gender: "woman",
-    category: "Sandals"
+    category: "Sandals, Sale"
   },
   {
     name: "Delicacy Black",
@@ -121,7 +121,7 @@ Approximate heel height 5 inches",
     image: "Delicacy02_BLACK_1.jpg",
     color: "black",
     gender: "woman",
-    category: "Pumps"
+    category: "Pumps, Sale"
   },
   {
     name: "Giselle",
@@ -137,7 +137,7 @@ Approximate heel height 5 inches",
     image: "Giselle09_Navy_Black01.jpg",
     color: "black",
     gender: "woman",
-    category: "Pumps"
+    category: "Pumps, Fun"
   },
   {
     name: "Rand23",
@@ -169,7 +169,7 @@ Approximate heel height 5 inches",
     image: "Rand23_Camel_Leopard01.jpg",
     color: "leopard",
     gender: "woman",
-    category: "Pumps"
+    category: "Pumps, Fun"
   },
   {
     name: "Vocita",
@@ -185,13 +185,66 @@ Approximate heel height 5 inches",
     image: "Vocita_Brown_Beige_Pink_01.jpg",
     color: "beige",
     gender: "woman",
-    category: "Pumps"
+    category: "Pumps, Fun"
   }
 ]
 
 
 shoes.each do | shoe |
   newshoe = Shoe.create( name: shoe[:name], price: shoe[:price], stock: shoe[:stock], description: shoe[:description], image: shoe[:image], color: shoe[:color], gender: shoe[:gender], brand: shoe[:brand], size: shoe[:size] )
+
+  x = Random.rand(1...3)
+  x.times do |i|
+    review = Faker::Hacker.say_something_smart
+    userid = Random.rand(User.first.id...User.last.id - 1)
+    Review.create(message:review, user_id:userid, shoe:newshoe)
+  end
+  x = Random.rand(1...3)
+  x.times do |i|
+    review = Faker::Hipster.sentence
+    userid = Random.rand(User.first.id...User.last.id - 1)
+    Review.create(message:review, user_id:userid, shoe:newshoe)
+  end
+
+  shoe[:category].split(", ").each do |category_name|
+    if category = Category.find_by( name: category_name)
+    else
+      category = Category.create( name: category_name)
+    end
+    CategoriesShoes.create( shoe: newshoe, category: category )
+  end
+end
+
+man_and_kids_shoes = [
+  {image:"men1dress.jpg", gender:"man",  category:"Dress"},
+  {image:"men2dress.jpg", gender:"man",  category:"Dress, Sale"},
+  {image:"men3dress.jpg", gender:"man",  category:"Dress, Sale"},
+  {image:"men4dress.jpg", gender:"man",  category:"Dress, Sale"},
+  {image:"men5boot.jpg", gender:"man",  category:"Boots"},
+  {image:"men6boot.jpg", gender:"man",  category:"Boots, Comfy"},
+  {image:"men7sneakers.jpg", gender:"man",  category:"Sneakers"},
+  {image:"mens8sneakers.jpg", gender:"man",  category:"Sneakers, Comfy, Sale"},
+  {image:"mens9sneakers.jpg", gender:"man",  category:"Sneakers, Comfy"},
+  {image:"mens10sneakers.jpg", gender:"man",  category:"Sneakers, Comfy, Sale"},
+  {image:"mens11slippers.jpg", gender:"man",  category:"Slippers, Comfy"},
+  {image:"mens12slippers.jpg", gender:"man",  category:"Slippers, Comfy"},
+  {image:"mens13slippers.jpg", gender:"man",  category:"Slippers, Comfy, Sale"},
+  {image:"mens13slippers.jpg", gender:"man",  category:"Slippers, Comfy"},
+  {image:"kid1sneaker", gender:"kids",  category:"Sneakers"},
+  {image:"kid2sneaker", gender:"kids",  category:"Sneakers"},
+  {image:"kid3sandal", gender:"kids",  category:"Sandals"},
+  {image:"kid4sneaker", gender:"kids",  category:"Sneakers"},
+  {image:"kid5dress", gender:"kids",  category:"Dress"},
+  {image:"kid6sneaker", gender:"kids",  category:"Sneakers"},
+  {image:"kid7sandal", gender:"kids",  category:"Sandals"},
+  {image:"kid8boot", gender:"kids",  category:"Boots"},
+  {image:"kid9boot", gender:"kids",  category:"Boots"},
+  {image:"kid10dress", gender:"kids",  category:"Dress"},
+]
+
+man_and_kids_shoes.each do | shoe |
+  shoe_price = Random.rand(5...700)
+  newshoe = Shoe.create( name:Faker::Beer.name, price: shoe_price, stock:10, description:Faker::Lorem.sentence, image: shoe[:image], gender: shoe[:gender], brand:Faker::Company.name, size:40 )
 
   x = Random.rand(1...3)
   x.times do |i|
