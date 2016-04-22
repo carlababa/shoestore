@@ -3,6 +3,24 @@ class ShoesController < ApplicationController
     @shoe = Shoe.find(params[:id])
   end
 
+  def men
+    params[:gender] = 'man'
+    index
+    render :index
+  end
+
+  def women
+    params[:gender] = 'woman'
+    index
+    render :index
+  end
+
+  def kids
+    params[:gender] = 'kids'
+    index
+    render :index
+  end
+
   def index
     if params[:search]
       shoes = Shoe.where("shoes.name iLIKE ?", "%#{params[:search]}%")
