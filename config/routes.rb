@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id'=> 'cart#add'
+  delete '/cart/:id' => 'cart#destroy'
 
   get 'user/index'
 
