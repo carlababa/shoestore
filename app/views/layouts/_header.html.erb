@@ -15,28 +15,28 @@
         <li class="dropdown">
           <a href="<%= root_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Boots", cart_path %></li>
-            <li><%= link_to "Sneakers", root_path %></li>
-            <li><%= link_to "Fancy Shoes", root_path %></li>
-            <li><%= link_to "Sandals", root_path %></li>
+            <% @manscategories = Category.joins(:shoes).where(shoes:{gender:["man","unisex"]}).uniq%>
+            <% @manscategories.each do |category| %>
+              <li><%= link_to category.name, category_shoes_path(category) %></li>
+            <%end%>
           </ul>
         </li>
         <li class="dropdown">
           <a href="<%= root_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Women <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Pumps", root_path %></li>
-            <li><%= link_to "Flats", root_path %></li>
-            <li><%= link_to "Slippers", root_path %></li>
-            <li><%= link_to "Sandals", root_path %></li>
+            <% @womanscategories = Category.joins(:shoes).where(shoes:{gender:["woman","unisex"]}).uniq%>
+            <% @womanscategories.each do |category| %>
+              <li><%= link_to category.name, category_shoes_path(category) %></li>
+              <%end%>
           </ul>
         </li>
         <li class="dropdown">
           <a href="<%= root_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kids <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Rubber Shoes", root_path %></li>
-            <li><%= link_to "Cheap Crap", root_path %></li>
-            <li><%= link_to "Ortopedic Shoes", root_path %></li>
-            <li><%= link_to "Blinking", root_path %></li>
+            <% @kidscategories = Category.joins(:shoes).where(shoes:{gender:"kids"}).uniq%>
+            <% @kidscategories.each do |category| %>
+              <li><%= link_to category.name, category_shoes_path(category) %></li>
+            <%end%>
           </ul>
         </li>
       </ul>
@@ -44,7 +44,7 @@
         <% if !user_signed_in? %>
           <li><%= link_to "Log In", new_user_session_path, class: "btn" %></li>
         <% else %>
-          <li><span class="navbar-text"><%= current_user.username %></span></li>
+          <li><span class="navbar-text"><%= current_user.email %></span></li>
           <li><%= link_to "Log Out", destroy_user_session_path, class: "btn", :method => :delete %></li>
         <% end %>
       </ul>
