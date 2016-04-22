@@ -10,11 +10,13 @@
     <% @shoes.each do |shoe| %>
         <div class="col-sm-12 col-md-4">
           <div class="thumbnail">
-            <%= link_to image_tag(shoe.image, class: "img-index"), shoe %>
-            <div class="caption">
-              <div class="text-title"><%= link_to shoe.name, shoe %></div>
-              <p>Price:<%= shoe.price %> euros</p>
-              <p><%= shoe.description %></p>
+            <div class="shoe-thumb"
+              <%= link_to image_tag(shoe.image, class: "img-index"), shoe %>
+              <div class="caption">
+                <div class="text-title"><%= link_to shoe.name, shoe %></div>
+                <p><strong>Price: </strong><span class="glyphicon glyphicon-euro"></span> <%= shoe.price %></p>
+                <p><%= shoe.description %></p>
+              </div>
             </div>
           </div>
         </div>

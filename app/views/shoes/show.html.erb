@@ -1,9 +1,12 @@
-<div class = "container">
-  <div class = "row">
-    <div class = "col-sm-12 col-md-5">
-      <div class= "template">
-          <%= image_tag( @shoe.image, class: "img-show") %>
-          <div class = "title-background"><h1 class = "big-title"><%= @shoe.name %></h1></div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-5">
+      <div class="template">
+        <div class="left-side">
+          <%= image_tag( @shoe.image, class: "img-show" ) %>
+        </div>
+        <div class = "title-background"><h1 class = "big-title"><%= @shoe.name %></h1>
+        </div>
       </div>
     </div>
 
@@ -11,19 +14,23 @@
       <div class = "text-background">
         <h3 class = "text-title">Brand: <%= @shoe.brand %></h3>
         <div class = "text-block">
-              <h3 class = "text-text">Color: <%= @shoe.color %></h3>
-              <h3 class = "text-text">Price: <%= @shoe.price %></h3>
-              <h3 class = "text-text">In stock: <%= @shoe.stock %></h3>
-              <h3 class = "text-text">Size: <%= @shoe.size %></h3>
+              <h3 class = "text-text"><strong>Color: </strong><%= @shoe.color %></h3>
+              <h3 class = "text-text"><strong>Price: </strong><%= @shoe.price %></h3>
+              <h3 class = "text-text"><strong>In stock: </strong><%= @shoe.stock %></h3>
+              <h3 class = "text-text"><strong>Size: </strong><%= @shoe.size %></h3>
         </div>
         <div>
             <h3><a class = "btn btn-default btn-lg button-card" href="/cart/<%=@shoe.id%>">Add to cart</a></h3>
+            <h3><a class = "btn btn-default btn-lg" href="/categories/">Go Back</a></h3>
+
       </div>
        </div>
     </div>
    </div>
   </div>
-
+<br>
 <% if @shoe.reviews.count > 0 %>
-  <p><%= link_to "Read all " + @shoe.reviews.count.to_s + " reviews", shoe_reviews_path(@shoe.id) %></p>
+  <h4 class="rev-note">
+    <%= link_to "Read all " + @shoe.reviews.count.to_s + " reviews", shoe_reviews_path(@shoe.id) %>
+  </h4>
 <%end%>

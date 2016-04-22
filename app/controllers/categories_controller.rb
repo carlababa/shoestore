@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.joins(:shoes).all.uniq
   end
 end
