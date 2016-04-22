@@ -5,11 +5,11 @@ class ShoesController < ApplicationController
 
   def index
     if params[:search]
-      shoes = Shoe.where("shoes.name LIKE ?", "%#{params[:search]}%")
+      shoes = Shoe.where("shoes.name iLIKE ?", "%#{params[:search]}%")
       if shoes.present?
         @shoes = shoes
       else
-        @shoes = Shoe.all
+        redirect_to shoes_path, notice: "Sorry, we have no results for your search!"
       end
     else
       @shoes = Shoe.all
