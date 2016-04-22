@@ -3,9 +3,13 @@
 <br>
 
 <% @reviews.each do |review| %>
-    <div>
-      <h2><%= review.shoe.name%></h2>
-      <div><%= image_tag(review.shoe.image, class:"img-responsive") %></div>
-       <h4><%= review.message %></h4>
-    </div>
+<div>
+  <blockquote>
+    <p>"<%= review.message %>"</p>
+    <footer><p>Review for
+      <%= link_to review.shoe.name, review.shoe %>
+    <%= image_tag( review.shoe.image, width:"100", height:"auto" ) %></p>
+    </footer>
+  </blockquote>
+</div>
 <% end %>

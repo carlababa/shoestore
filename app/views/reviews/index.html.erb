@@ -10,6 +10,11 @@
 
 <br>
 <em>Tried this Product? Tell us about it!</em>
-<%= render "form" %>
+<% if current_user then %>
+  <%= render "form" %>
+<% else%>
+  <br>
+    <p class="text-danger"><strong>You must log in before you can write a review</strong></p>
+<%end%>
 <br>
 <p><%= link_to "Back to Show Page", @shoe %></p>
