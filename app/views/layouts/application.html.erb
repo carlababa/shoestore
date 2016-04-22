@@ -14,12 +14,25 @@
 <body>
 
   <%= render "layouts/header" %><br/>
-  
+
   <div class="main">
+    <p class="notice" >
+      <% unless notice.nil? %>
+        <div class="notice-msg">
+          <%= notice %>
+        </div>
+      <% end %>
+    </p>
+    <p class="alert">
+      <% unless alert.nil? %>
+        <div class="alert-msg">
+          <%= alert %>
+        </div>
+      <% end %>
+    </p>
 
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
 
   </div>
 
