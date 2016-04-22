@@ -1,9 +1,7 @@
 class CartController < ApplicationController
-    def add
-  id=params[:id]
-  logger.info id
-
-
+  def add
+    id=params[:id]
+    logger.info id
 
   if session[:cart] then
     cart=session[:cart]
@@ -35,11 +33,10 @@ class CartController < ApplicationController
   end
 end
 
-  # def destroy
-  #   @cart = session[:cart].find(params[:id])
-  #   @cart.destroy
-  #
-  #   redirect_to cart_path
-  # end
+  def destroy
+    session[:cart].delete(params[:id])
+
+    redirect_to cart_path
+  end
 
 end

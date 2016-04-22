@@ -1,35 +1,35 @@
 <div class="container">
-  <h1>Contents cart </h1>
+<h1>Your cart have: </h1>
 
-  <%@total_price=0%>
+<%@total_price=0%>
 
 
-  <div class="row">
-    <%@cart.keys.each do |id|%>
-    <ul>
-      <%product=Shoe.find_by_id(id)%>
-      <li class="cart-list">
-        <%= image_tag(product.image, class: "img-cart") %>
-      </li>
-      <li class="cart-list">
-        <input type="checkbox" value="1">
-        <label><%=product.name%></label>
-        <p>Price per unit: <%=product.price%> euros.</p>
-        <%@total_price=@total_price+product.price%>
-      </li>
-      <br>
-      <br>
-    </ul>
-    <%end%>
-  </div>
-
-  <% if @total_price>0%>
-  <h3>The total in your shopping cart is: <%=@total_price%> euros</h3>
-  <br/>
-  <% else%>
+<div class="row">
+  <%@cart.keys.each do |id|%>
+  <ul>
+    <%product=Shoe.find_by_id(id)%>
+    <li class="cart-list">
+      <%= image_tag(product.image, class: "img-cart") %>
+    </li>
+    <li class="cart-list">
+      <label><%=product.name%></label>
+      <p>Price per unit: <%=product.price%> euros.</p>
+      <%= link_to "Delete product", "/cart/#{product.id}", method: :delete %>
+      <%@total_price=@total_price+product.price%>
+    </li>
+    <br>
+    <br>
+  </ul>
   <%end%>
+</div>
+
+<% if @total_price>0%>
+<h3>The total in your shopping cart is: <%=@total_price%> euros</h3>
+<br/>
+<% else%>
+<%end%>
 
 
-  <%=link_to "Buy more products", shoes_path, class: "btn btn-default"%> |
-  <%=link_to "Empty your cart", cart_clear_path, class: "btn btn-default"%>
+<%=link_to "Buy more products", shoes_path, class: "btn btn-default"%> |
+<%=link_to "Empty your cart", cart_clear_path, class: "btn btn-default"%>
 </div>
