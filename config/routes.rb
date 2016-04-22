@@ -22,7 +22,13 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   resources :categories do
-    resources :shoes
+    resources :shoes  do
+      collection do
+        get :men
+        get :women
+        get :kids
+      end
+    end
      get 'gender/:gender/shoes' => 'shoes#index'
   end
 
