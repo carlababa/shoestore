@@ -1,6 +1,13 @@
 
 .img-index {
+  display: flex;
+  align-items: center;
   max-height: 242px;
+}
+
+.shoe-thumb {
+
+  min-height: 550px;
 }
 
 .wrapper {
@@ -25,4 +32,8 @@
   text-align: center;
   font-size: 50px;
   color: #930000;
+}
+
+p {
+  text-align: justify;
 }
