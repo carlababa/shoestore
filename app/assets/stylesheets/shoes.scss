@@ -2,11 +2,14 @@
 .img-index {
   display: flex;
   align-items: center;
-  max-height: 242px;
+  max-height: 186px;
+}
+
+.thumbnail > img, .thumbnail a > img {
+  max-width: none;
 }
 
 .shoe-thumb {
-
   min-height: 550px;
 }
 
