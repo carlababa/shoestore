@@ -174,7 +174,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise (~> 3.5)
-  faker
+  faker (~> 1.6.3)
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.0)
   jquery-rails

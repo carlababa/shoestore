@@ -1,3 +1,5 @@
+require "faker"
+
 Review.delete_all
 User.delete_all
 CategoriesShoes.delete_all
